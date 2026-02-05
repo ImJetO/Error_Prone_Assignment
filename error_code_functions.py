@@ -18,8 +18,9 @@ def combat(p1, p2):
             print(f"The {p2['name']} attacks... but you dodge it!")
     return p1,p2
 
+
 def create_monster():
-    stats = [25,50,75,100]
+    stats = ["25","50","75","100"]
     health = random.choice(stats)
     stats.remove(health)
     attack = random.choice(stats)
@@ -38,6 +39,8 @@ def create_monster():
     else:
         name = "Goblin"
 
+
+
     return {
         "name":name,
         "health":health,
@@ -45,3 +48,5 @@ def create_monster():
         "defense":defense,
         "damage":damage
         }
+
+

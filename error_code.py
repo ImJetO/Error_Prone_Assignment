@@ -2,12 +2,14 @@
 # Use what you know about Python to fix them
 
 import random
-from error_code_function import combat, createMonster  
+from error_code_functions import combat, create_monster
 
 char_name = input("Please enter a character name:\n")
 char_class = 0
 items = ["sword","shield","potion","spyglass","wand","dagger","spellbook","coinpurse"]
 items = [] 
+
+
 class_stats = {
     "Fighter":{
         "health":100,
@@ -59,9 +61,9 @@ print(f"Welcome, {char_class['name']}!")
 print(f"Starting Stats -> HP: {char_class['health']} | ATK: {char_class['attack']} | DEF: {char_class['defense']} | DMG: {char_class['damage']} | LUCK: {char_class['luck']} | GOLD: {char_class['gold']}")
 print("========================================\n")
 
-FIRST_PASS = True
+First_pass = True
 while True:
-    if not FIRST_PASS:
+    if not First_pass:
         print(f"\nSTATUS -> HP: {char_class['health']} | GOLD: {char_class['gold']} | INVENTORY: {len(char_class['inventory'])} item(s)")
 
     choice = input("What would you like to do?:\n1.Combat\n2.Search\n3.Flee\n").lower()
@@ -72,6 +74,7 @@ while True:
         print("Prepare for combat!\n")
         rounds = 0
         MAX_ROUNDS = 25
+        print(monster["health"])
         while monster["health"] > 0 and char_class["health"] > 0:
             rounds += 1
 
@@ -87,7 +90,7 @@ while True:
                 print("\nThe fight drags on... neither side can land a clean hit.")
                 print("You break away and retreat before this becomes your whole personality.")
         elif monster["health"] > 0:
-            print(f"You were slain by the {monster["name"]}!") 
+            print(f"You were slain by the {monster[__name__]}!") 
             print("Your vision fades. The dungeon claims another hero.")
             break
         else:
@@ -104,7 +107,7 @@ while True:
     elif choice == "Search" or choice == "2":
         did_find = random.randint(1,100)
 
-        if did_find < char_class["Luck"]:
+        if did_find < char_class['Luck']:
             found_item = random.choice(items) 
             char_class["inventory"].append(found_item)
             print(f"You search the area... and find a {found_item}!")
@@ -120,7 +123,7 @@ while True:
         print("Please choose a valid option.")
     print("========================================")
 
-    FIRST_PASS == False
+    First_pass == False
 
 print(f"Final Stats -> HP: {char_class['health']} | GOLD: {char_class['gold']} | INVENTORY: {char_class['inventory']}")
 print("Goodbye!")
